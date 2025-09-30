@@ -1,6 +1,6 @@
 import sbtrelease.ReleasePlugin.autoImport.ReleaseTransformations._
 
-val scalaVersions = Seq("2.12.20", "2.13.16", "3.3.6")
+val scalaVersions = Seq("2.12.20", "2.13.17", "3.3.6")
 
 lazy val unapply = projectMatrix
   .in(file("core"))

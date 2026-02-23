@@ -114,7 +114,5 @@ releaseProcess := Seq[ReleaseStep](
   pushChanges
 )
 
-ThisBuild / semanticdbEnabled := true
-ThisBuild / semanticdbVersion := "4.14.2"
 ThisBuild / scalafixDependencies += "com.github.xuwei-k" %% "scalafix-rules" % "0.6.23"
 sonatypeProfileName := "com.github.xuwei-k"

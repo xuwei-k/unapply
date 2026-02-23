@@ -11,7 +11,7 @@ lazy val unapply = projectMatrix
   .settings(
     name := "unapply",
     organization := "com.github.xuwei-k",
-    publishTo := sonatypePublishToBundle.value,
+    publishTo := (if (isSnapshot.value) None else localStaging.value),
     libraryDependencies += "org.scalatest" %%% "scalatest-freespec" % "3.2.19" % Test,
     libraryDependencies ++= {
       if (scalaBinaryVersion.value == "3") {
@@ -108,11 +108,10 @@ releaseProcess := Seq[ReleaseStep](
   commitReleaseVersion,
   tagRelease,
   releaseStepCommandAndRemaining("publishSigned"),
-  releaseStepCommandAndRemaining("sonatypeBundleRelease"),
+  releaseStepCommandAndRemaining("sonaRelease"),
   setNextVersion,
   commitNextVersion,
   pushChanges
 )
 
 ThisBuild / scalafixDependencies += "com.github.xuwei-k" %% "scalafix-rules" % "0.6.23"
-sonatypeProfileName := "com.github.xuwei-k"

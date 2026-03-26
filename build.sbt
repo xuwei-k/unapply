@@ -12,7 +12,7 @@ lazy val unapply = projectMatrix
     name := "unapply",
     organization := "com.github.xuwei-k",
     publishTo := (if (isSnapshot.value) None else localStaging.value),
-    libraryDependencies += "org.scalatest" %%% "scalatest-freespec" % "3.2.19" % Test,
+    libraryDependencies += "org.scalatest" %%% "scalatest-freespec" % "3.2.20" % Test,
     libraryDependencies ++= {
       if (scalaBinaryVersion.value == "3") {
         Nil

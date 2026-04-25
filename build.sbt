@@ -28,10 +28,10 @@ lazy val unapply = projectMatrix
           <url>https://github.com/xuwei-k</url>
         </developer>
       </developers>
-        <scm>
-          <url>git@github.com:xuwei-k/unapply.git</url>
-          <connection>scm:git:git@github.com:xuwei-k/unapply.git</connection>
-        </scm>
+      <scm>
+        <url>git@github.com:xuwei-k/unapply.git</url>
+        <connection>scm:git:git@github.com:xuwei-k/unapply.git</connection> 
+      </scm>
     ),
     homepage := Some(url("https://github.com/xuwei-k/unapply")),
     licenses := List(

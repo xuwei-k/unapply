@@ -30,12 +30,12 @@ lazy val unapply = projectMatrix
     name := "unapply",
     organization := "com.github.xuwei-k",
     publishTo := (if (isSnapshot.value) None else localStaging.value),
-    libraryDependencies += "org.scalatest" %%% "scalatest-freespec" % "3.2.20" % Test,
+    libraryDependencies += "org.scalatest" %% "scalatest-freespec" % "3.2.20" % Test,
     libraryDependencies ++= {
       if (scalaBinaryVersion.value == "3") {
         Nil
       } else {
-        Seq("com.chuusai" %%% "shapeless" % "2.3.13")
+        Seq("com.chuusai" %% "shapeless" % "2.3.13")
       }
     },
     pomExtra := (
@@ -116,20 +116,21 @@ ${values.mkString("\n")}
     }
   )
 
-publish / skip := true
-
-releaseProcess := Seq[ReleaseStep](
-  checkSnapshotDependencies,
-  inquireVersions,
-  runClean,
-  setReleaseVersion,
-  commitReleaseVersion,
-  tagRelease,
-  releaseStepCommandAndRemaining("publishSigned"),
-  releaseStepCommandAndRemaining("sonaRelease"),
-  setNextVersion,
-  commitNextVersion,
-  pushChanges
+val unapplyRoot = rootProject.autoAggregate.settings(
+  publish / skip := true,
+  releaseProcess := Seq[ReleaseStep](
+    checkSnapshotDependencies,
+    inquireVersions,
+    runClean,
+    setReleaseVersion,
+    commitReleaseVersion,
+    tagRelease,
+    releaseStepCommandAndRemaining("publishSigned"),
+    releaseStepCommandAndRemaining("sonaRelease"),
+    setNextVersion,
+    commitNextVersion,
+    pushChanges
+  )
 )
 
 ThisBuild / scalafixDependencies += "com.github.xuwei-k" %% "scalafix-rules" % "0.6.28"

@@ -7,7 +7,12 @@ lazy val unapply = projectMatrix
   .defaultAxes()
   .jvmPlatform(scalaVersions = scalaVersions)
   .jsPlatform(scalaVersions = scalaVersions)
-  .nativePlatform(scalaVersions = scalaVersions)
+  .nativePlatform(
+    scalaVersions,
+    Def.settings(
+      evictionErrorLevel := Level.Warn,
+    )
+  )
   .settings(
     name := "unapply",
     organization := "com.github.xuwei-k",

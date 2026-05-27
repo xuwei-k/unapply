@@ -119,4 +119,4 @@ releaseProcess := Seq[ReleaseStep](
   pushChanges
 )
 
-ThisBuild / scalafixDependencies += "com.github.xuwei-k" %% "scalafix-rules" % "0.6.25"
+ThisBuild / scalafixDependencies += "com.github.xuwei-k" %% "scalafix-rules" % "0.6.26"

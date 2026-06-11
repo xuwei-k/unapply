@@ -2,11 +2,24 @@ import sbtrelease.ReleasePlugin.autoImport.ReleaseTransformations._
 
 val scalaVersions = Seq("2.12.21", "2.13.18", "3.3.8")
 
+val varHandle = Def.settings(
+  scalacOptions ++= {
+    if (scalaVersion.value.startsWith("3.3.")) {
+      Seq(
+        "-Yfuture-lazy-vals",
+        "-release:11"
+      )
+    } else {
+      Nil
+    }
+  },
+)
+
 lazy val unapply = projectMatrix
   .in(file("core"))
   .defaultAxes()
-  .jvmPlatform(scalaVersions = scalaVersions)
-  .jsPlatform(scalaVersions = scalaVersions)
+  .jvmPlatform(scalaVersions = scalaVersions, varHandle)
+  .jsPlatform(scalaVersions = scalaVersions, varHandle)
   .nativePlatform(
     scalaVersions,
     Def.settings(

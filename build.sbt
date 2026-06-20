@@ -1,6 +1,6 @@
 import sbtrelease.ReleasePlugin.autoImport.ReleaseTransformations._
 
-val scalaVersions = Seq("2.12.21", "2.13.18", "3.3.8")
+val scalaVersions = Seq("2.12.21", "2.13.18", "3.8.4")
 
 val varHandle = Def.settings(
   scalacOptions ++= {

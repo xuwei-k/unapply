@@ -51,9 +51,9 @@ lazy val unapply = projectMatrix
         <connection>scm:git:git@github.com:xuwei-k/unapply.git</connection> 
       </scm>
     ),
-    homepage := Some(url("https://github.com/xuwei-k/unapply")),
+    homepage := Some(uri("https://github.com/xuwei-k/unapply")),
     licenses := List(
-      "MIT License" -> url("https://opensource.org/licenses/mit-license")
+      "MIT License" -> uri("https://opensource.org/licenses/mit-license")
     ),
     scalacOptions ++= Seq(
       "-deprecation",
